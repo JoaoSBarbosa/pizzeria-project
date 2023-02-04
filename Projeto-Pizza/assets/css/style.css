@@ -47,6 +47,8 @@ header {
 
 aside {
   background-color: #9ccbe6;
+  background-color: #c7c730;
+  background-color: #a9a17a;
   width: 0vw;
   font-family: "Hepta Slab", Helvetica, Arial;
   transition: all ease 0.2s;
@@ -98,6 +100,8 @@ h1 {
   line-height: 50px;
   border-radius: 25px;
   background-color: #3a2d19;
+  background-color: #93a31c;
+
  
 
   text-align: center;
@@ -108,7 +112,8 @@ h1 {
   transition: all ease 0.2s;
 }
 .pizza-item a:hover .pizza-item--add {
-  background-color: #ff4000;
+  background-color: #ebf74f;
+  color: #000;
 }
 .pizza-item--price {
   font-size: 15px;
@@ -326,15 +331,24 @@ h1 {
   padding: 20px 30px;
   border-radius: 20px;
   background-color: #48d05f;
+  /* background-color: #93a31c;
+  background-color: #444444; */
+  background-color: #9ba657;
+
+
   color: #fff;
   cursor: pointer;
   text-align: center;
   margin-top: 20px;
   border: 2px solid #63f77c;
+  /* border: 2px solid #668c4d; */
   transition: all ease 0.2s;
 }
 .cart--finalizar:hover {
   background-color: #35af4a;
+  /* background-color: #b9d34d;
+  background-color: #fcf7d1; */
+
 }
 
 @media (max-width: 1000px) {
