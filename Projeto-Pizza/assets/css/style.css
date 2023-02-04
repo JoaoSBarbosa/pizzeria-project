@@ -20,6 +20,7 @@ header {
   right: 0;
   height: 60px;
   background-color: #ff4000;
+  /* background-color: #11472C; */
 
   display: none;
   justify-content: flex-end;
@@ -28,7 +29,7 @@ header {
 .menu-openner {
   margin-right: 15px;
   font-size: 26px;
-  background-color: #ffefb5;
+  background-color: #FFFFFF;
 
 
   padding: 5px 20px;
@@ -96,7 +97,9 @@ h1 {
   height: 50px;
   line-height: 50px;
   border-radius: 25px;
-  background-color: #ff4000;
+  background-color: #3a2d19;
+ 
+
   text-align: center;
   color: #fff;
   font-size: 22px;
@@ -105,9 +108,7 @@ h1 {
   transition: all ease 0.2s;
 }
 .pizza-item a:hover .pizza-item--add {
-  background-color: #ffefb5;
-  color: #000;
-
+  background-color: #ff4000;
 }
 .pizza-item--price {
   font-size: 15px;
