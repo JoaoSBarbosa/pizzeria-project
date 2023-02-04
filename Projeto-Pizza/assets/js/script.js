@@ -29,15 +29,14 @@ pizzaJson.map((item, index) => {
     c(".pizzaInfo--actualPrice").innerHTML = `R$ ${pizzaJson[key].price.toFixed(
       2
     )}`;
-    c('.pizzaInfo--size.selected').classList.remove('selected');
+    c(".pizzaInfo--size.selected").classList.remove("selected");
     cs(".pizzaInfo--size").forEach((size, indezSize) => {
-      if(indezSize == 2){
-        size.classList.add('selected');
+      if (indezSize == 2) {
+        size.classList.add("selected");
       }
       size.querySelector("span").innerHTML = pizzaJson[key].sizes[indezSize];
-
     });
-    c('.pizzaInfo--qt').innerHTML = modalQuatidade;
+    c(".pizzaInfo--qt").innerHTML = modalQuatidade;
     c(".pizzaWindowArea").style.opacity = 0;
     c(".pizzaWindowArea").style.display = "flex";
     setTimeout(() => {
@@ -51,15 +50,28 @@ pizzaJson.map((item, index) => {
 
 // Eventos do modal
 
-function closeModal(){
-  c('.pizzaWindowArea').style.opacity = 0;
+function closeModal() {
+  c(".pizzaWindowArea").style.opacity = 0;
 
-  setTimeout(()=>{
-  c('.pizzaWindowArea').style.display = 'none';
-
+  setTimeout(() => {
+    c(".pizzaWindowArea").style.display = "none";
   }, 200);
 }
 
-cs('.pizzaInfo--cancelMobileButton, .pizzaInfo--cancelButton').forEach((item)=>{
-  item.addEventListener('click',closeModal);
+cs(".pizzaInfo--cancelMobileButton, .pizzaInfo--cancelButton").forEach(
+  (item) => {
+    item.addEventListener("click", closeModal);
+  }
+);
+
+c(".pizzaInfo--qtmenos").addEventListener("click", () => {
+  if (modalQuatidade >= 2) {
+    modalQuatidade--;
+    c(".pizzaInfo--qt").innerHTML = modalQuatidade;
+  }
+});
+
+c(".pizzaInfo--qtmais").addEventListener("click", () => {
+  modalQuatidade++;
+  c(".pizzaInfo--qt").innerHTML = modalQuatidade;
 });
