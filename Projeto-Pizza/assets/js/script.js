@@ -1,6 +1,8 @@
 const c = (elemento) => document.querySelector(elemento);
 const cs = (elemento) => document.querySelectorAll(elemento);
 let modalQuatidade = 1;
+let modalKey = 0;
+let cart = [];
 
 // mapeando o objeto
 pizzaJson.map((item, index) => {
@@ -22,6 +24,7 @@ pizzaJson.map((item, index) => {
     evento.preventDefault(); // prevenindo o evento padrão
     let key = evento.target.closest(".pizza-item").getAttribute("data-key");
     modalQuatidade = 1;
+    modalKey = key;
 
     c(".imgs").src = pizzaJson[key].img;
     c(".pizzaInfo h1").innerHTML = pizzaJson[key].name;
@@ -83,3 +86,17 @@ cs(".pizzaInfo--size").forEach((size, indezSize) => {
   
   })
 });
+
+// botão adicionar ao carrinho
+c('.pizzaInfo--addButton').addEventListener('click',() =>{
+  let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));
+  
+  cart.push({
+    id: pizzaJson[modalKey].id,
+    size: size,
+    qtd: modalQuatidade
+  });
+
+  closeModal();
+ 
+})
