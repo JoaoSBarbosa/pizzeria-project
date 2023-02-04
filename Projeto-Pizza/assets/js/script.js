@@ -65,7 +65,7 @@ cs(".pizzaInfo--cancelMobileButton, .pizzaInfo--cancelButton").forEach(
 );
 
 c(".pizzaInfo--qtmenos").addEventListener("click", () => {
-  if (modalQuatidade >= 2) {
+  if (modalQuatidade > 1) {
     modalQuatidade--;
     c(".pizzaInfo--qt").innerHTML = modalQuatidade;
   }
@@ -74,4 +74,12 @@ c(".pizzaInfo--qtmenos").addEventListener("click", () => {
 c(".pizzaInfo--qtmais").addEventListener("click", () => {
   modalQuatidade++;
   c(".pizzaInfo--qt").innerHTML = modalQuatidade;
+});
+
+cs(".pizzaInfo--size").forEach((size, indezSize) => {
+  size.addEventListener('click',(e)=>{
+    c('.pizzaInfo--size.selected').classList.remove('selected')
+    size.classList.add('selected');
+  
+  })
 });
