@@ -80,23 +80,30 @@ c(".pizzaInfo--qtmais").addEventListener("click", () => {
 });
 
 cs(".pizzaInfo--size").forEach((size, indezSize) => {
-  size.addEventListener('click',(e)=>{
-    c('.pizzaInfo--size.selected').classList.remove('selected')
-    size.classList.add('selected');
-  
-  })
+  size.addEventListener("click", (e) => {
+    c(".pizzaInfo--size.selected").classList.remove("selected");
+    size.classList.add("selected");
+  });
 });
 
 // botão adicionar ao carrinho
-c('.pizzaInfo--addButton').addEventListener('click',() =>{
-  let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));
-  
-  cart.push({
-    id: pizzaJson[modalKey].id,
-    size: size,
-    qtd: modalQuatidade
-  });
+c(".pizzaInfo--addButton").addEventListener("click", () => {
+  let size = parseInt(c(".pizzaInfo--size.selected").getAttribute("data-key"));
 
+  let identifier = pizzaJson[modalKey].id + "@" + size;
+
+  let key = cart.findIndex((item) => (item.identifier === identifier));
+
+  if (key > -1) {
+    cart[key].qtd += modalQuatidade;
+  } else {
+    cart.push({
+      identifier,
+      id: pizzaJson[modalKey].id,
+      size: size,
+      qtd: modalQuatidade,
+    });
+  }
+  // console.log(cart)
   closeModal();
- 
-})
+});
