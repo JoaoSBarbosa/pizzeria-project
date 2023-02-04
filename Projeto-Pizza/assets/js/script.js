@@ -1,4 +1,6 @@
 const c = (elemento) => document.querySelector(elemento);
+const cs = (elemento) => document.querySelectorAll(elemento);
+let modalQuatidade = 1;
 
 // mapeando o objeto
 pizzaJson.map((item, index) => {
@@ -18,14 +20,24 @@ pizzaJson.map((item, index) => {
   // Adicionando evento do modal na tag a
   p("a").addEventListener("click", (evento) => {
     evento.preventDefault(); // prevenindo o evento padrão
-    let key = evento.target.closest('.pizza-item').getAttribute('data-key');
-    
-    c('.imgs').src = pizzaJson[key].img;
-    c('.pizzaInfo h1').innerHTML = pizzaJson[key].name;
-    c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description;
-   
+    let key = evento.target.closest(".pizza-item").getAttribute("data-key");
+    modalQuatidade = 1;
 
+    c(".imgs").src = pizzaJson[key].img;
+    c(".pizzaInfo h1").innerHTML = pizzaJson[key].name;
+    c(".pizzaInfo--desc").innerHTML = pizzaJson[key].description;
+    c(".pizzaInfo--actualPrice").innerHTML = `R$ ${pizzaJson[key].price.toFixed(
+      2
+    )}`;
+    c('.pizzaInfo--size.selected').classList.remove('selected');
+    cs(".pizzaInfo--size").forEach((size, indezSize) => {
+      if(indezSize == 2){
+        size.classList.add('selected');
+      }
+      size.querySelector("span").innerHTML = pizzaJson[key].sizes[indezSize];
 
+    });
+    c('.pizzaInfo--qt').innerHTML = modalQuatidade;
     c(".pizzaWindowArea").style.opacity = 0;
     c(".pizzaWindowArea").style.display = "flex";
     setTimeout(() => {
